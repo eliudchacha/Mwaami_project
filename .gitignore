@@ -1,0 +1,14 @@
+# Node.js (frontend)
+node_modules/
+dist/
+build/
+
+# Python (backend)
+__pycache__/
+*.pyc
+env/
+venv/
+*.sqlite3
+
+# Environment files
+.env

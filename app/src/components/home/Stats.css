@@ -1,0 +1,41 @@
+.stats {
+    background-color: #eef5ff;
+    padding: 3rem 1rem;
+  }
+  
+  .stats__container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .stats__container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+  }
+  
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stat__card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat__card h3 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat__card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  

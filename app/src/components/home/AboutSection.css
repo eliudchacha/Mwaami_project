@@ -1,0 +1,25 @@
+.about {
+    background-color: #f9f9f9;
+    padding: 3rem 1rem;
+  }
+  
+  .about__container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .about__container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  .about__mission,
+  .about__vision {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  

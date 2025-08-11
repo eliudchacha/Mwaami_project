@@ -5,7 +5,7 @@ import dj_database_url  # You need to install this package
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Get secret key from env or fallback (NOT recommended for production)
-SECRET_KEY = os.getenv('SECRET_KEY', gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
+SECRET_KEY = os.getenv('SECRET_KEY', '&jn(t70lb%kryl(wkfsf)_^^2$=k7a7!4tq49nk+zlq-2!fi5x')
 
 
 # DEBUG is off by default on Render

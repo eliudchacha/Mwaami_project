@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eliudwaryoba.me/sitemap.xml
+Sitemap: https://www.eliudwaryoba.me/sitemap.xml

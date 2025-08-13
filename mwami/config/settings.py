@@ -12,10 +12,14 @@ SECRET_KEY = os.getenv('SECRET_KEY', '&jn(t70lb%kryl(wkfsf)_^^2$=k7a7!4tq49nk+zl
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1')
 
 ALLOWED_HOSTS = [
+    
     'localhost',
     '127.0.0.1',
-    os.getenv('RENDER_EXTERNAL_HOSTNAME', ''),  # Render's auto hostname
-    'api.yourdomain.com',  # Replace with your real domain when ready
+    'mwami_project.onrender.com',  # Render backend URL
+    'eliudwaryoba.me',             # Your custom domain
+    'www.eliudwaryoba.me',         # Optional, if you use www
+     os.getenv('RENDER_EXTERNAL_HOSTNAME', ''),  # Render's auto hostname
+    
 ]
 
 INSTALLED_APPS = [

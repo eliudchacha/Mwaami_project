@@ -1,26 +1,34 @@
 from pathlib import Path
 import os
-import dj_database_url  # You need to install this package
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Get secret key from env or fallback (NOT recommended for production)
 SECRET_KEY = os.getenv('SECRET_KEY', '&jn(t70lb%kryl(wkfsf)_^^2$=k7a7!4tq49nk+zlq-2!fi5x')
 
-
-# DEBUG is off by default on Render
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1')
 
 ALLOWED_HOSTS = [
-    
     'localhost',
     '127.0.0.1',
-    'mwami_project.onrender.com',  # Render backend URL
-    'eliudwaryoba.me',             # Your custom domain
-    'www.eliudwaryoba.me',         # Optional, if you use www
-     os.getenv('RENDER_EXTERNAL_HOSTNAME', ''),  # Render's auto hostname
-    
+    'mwaami_project.onrender.com',
+    'eliudwaryoba.me',
+    'www.eliudwaryoba.me',
+    os.getenv('RENDER_EXTERNAL_HOSTNAME', ''),
 ]
+
+# CRITICAL SECURITY FIXES
+CSRF_TRUSTED_ORIGINS = [
+    'https://mwaami_project.onrender.com',
+    'https://eliudwaryoba.me',
+    'https://www.eliudwaryoba.me',
+]
+
+# SECURITY SETTINGS FOR PRODUCTION
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,9 +43,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',               # CORS on top
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',          # Whitenoise for static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Fixed position
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,11 +55,10 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
-# CORS: allow your frontend domain(s)
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://your-frontend-domain.com',  # Replace with your real frontend domain
+    'https://mwaami-project-1.onrender.com',  # Update to your actual frontend
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -74,14 +81,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# DATABASE CONFIG - use DATABASE_URL from environment (Render provides this)
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
     )
 }
 
-# Password validation - keep empty if you want
 AUTH_PASSWORD_VALIDATORS = []
 
 LANGUAGE_CODE = 'en-us'
@@ -97,14 +102,31 @@ LANGUAGES = [
     ('fr', _('French')),
 ]
 
-# Static files settings (Whitenoise setup)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Whitenoise static files settings
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# FIXED STATIC FILES CONFIGURATION
+if DEBUG:
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# LOGGING CONFIGURATION (OPTIONAL BUT RECOMMENDED)
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING' if not DEBUG else 'INFO',
+    },
+}

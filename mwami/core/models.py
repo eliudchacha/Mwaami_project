@@ -8,10 +8,10 @@ class Child(models.Model):
     photo = models.ImageField(upload_to='children_photos/')
     sponsored = models.BooleanField(default=False)
 def __str__(self):
-        return self.Full_name
+        return self.name
 
 class Sponsor(models.Model):
-    Full_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = models.CharField(max_length=25)
     sponsored_children = models.ManyToManyField(Child, blank=True)
@@ -24,7 +24,7 @@ class Donation(models.Model):
      sponsor = models.ForeignKey(Sponsor,on_delete=models.SET_NULL, null=True,blank=True)
      amount = models.DecimalField(max_digits = 10, decimal_places=2)
      date_donated = models.DateTimeField(auto_now_add=True)
-     Child = models.ForeignKey(Child,on_delete=models.SET_NULL,null=True, blank=True)
+     child = models.ForeignKey(Child,on_delete=models.SET_NULL,null=True, blank=True)
      payment_method = models.CharField(
           max_length = 100,
           choices =[('cash', 'Cash'),
@@ -39,17 +39,17 @@ def __str__(self):
 
 
 class Volunteer(models.Model):
-     Full_name= models.CharField(max_length=100)
+     full_name= models.CharField(max_length=100)
      email = models.EmailField()
      phone_number= models.CharField(max_length=20)
-     loaction = models.CharField(max_length=100)
+     location = models.CharField(max_length=100)
      skills = models.TextField(help_text='list your skills or area that you can help with')
      availability=models.TextField(
           max_length=100,
           help_text="Example: weekend,Evening,Full_time, etc"
      )
      joined_date =models.DateTimeField(auto_now_add=True)
-     end_date =models.DateTimeField(auto_now_add=True)
+     end_date =models.DateTimeField()
      def __str__(self):
           return self.Full_name
 
@@ -76,7 +76,7 @@ class ContactMessage(models.Model):
           return f"message from {self.name} - {self.subject}"
 
 class ProgressReport(models.Model):
-     Child= models.ForeignKey(Child, on_delete=models.CASCADE,related_name='progress_reports')
+     child= models.ForeignKey(Child, on_delete=models.CASCADE,related_name='progress_reports')
      report_date=models.DateTimeField(auto_now_add=True)
      title=models.CharField(max_length=200)
      description=models.TextField()

@@ -27,7 +27,7 @@ class BlogPostSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ContactMessageSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = ContactMessage
         fields = '__all__'
 

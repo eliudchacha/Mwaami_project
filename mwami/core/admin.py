@@ -13,38 +13,38 @@ class ChildAdmin(admin.ModelAdmin):
 
 @admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
-    list_display = ('Full_name', 'email', 'phone_number', 'joined_on')
-    search_fields = ('Full_name', 'email', 'phone_number')
+    list_display = ('full_name', 'email', 'phone_number', 'joined_on')
+    search_fields = ('full_name', 'email', 'phone_number')
     list_filter = ('joined_on',)
 
 @admin.register(Donation)
 class DonationAdmin(admin.ModelAdmin):
-    list_display = ('sponsor', 'amount', 'date_donated', 'Child', 'payment_method')
-    search_fields = ('sponsor__Full_name', 'Child__name', 'amount')
-    list_filter = ('payment_method', 'Child', 'sponsor')
+    list_display = ('sponsor', 'child', 'amount', 'payment_method', 'date_donated')
+    search_fields = ('sponsor__full_name', 'child__name', 'amount')
+    list_filter = ('payment_method', 'child', 'sponsor')
 
 @admin.register(Volunteer)
 class VolunteerAdmin(admin.ModelAdmin):
-    list_display = ('Full_name', 'email', 'phone_number', 'skills', 'availability')
-    search_fields = ('Full_name', 'email')
-    list_filter = ('skills', 'joined_date')
+    list_display = ('full_name', 'email', 'phone_number', 'skills', 'availability', 'joined_date', 'end_date')
+    search_fields = ('full_name', 'email', 'skills')
+    list_filter = ('availability', 'joined_date', 'end_date')
 
 @admin.register(BlogPost)
 class BlogPostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author')
+    list_display = ('title', 'author', 'is_puplished', 'created_at')
     search_fields = ('title', 'author')
-    list_filter = ('created_at',)
+    list_filter = ('is_puplished', 'created_at')
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'subject', 'sent_at')
+    list_display = ('name', 'email', 'subject', 'sent_at', 'is_read')
     search_fields = ('name', 'email', 'subject')
-    list_filter = ('sent_at',)
+    list_filter = ('is_read', 'sent_at')
 
 @admin.register(ProgressReport)
 class ProgressReportAdmin(admin.ModelAdmin):
-    list_display = ('Child', 'report_date', 'description')
-    search_fields = ('Child__name', 'description')
+    list_display = ('child', 'title', 'report_date')
+    search_fields = ('child__name', 'title', 'description')
     list_filter = ('report_date',)
 
 @admin.register(MediaContent)
@@ -61,9 +61,8 @@ class AdvertisementAdmin(admin.ModelAdmin):
 
 @admin.register(Slide)
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image', 'description')
-    search_fields = ['title',]
-
+    list_display = ('title', 'description', 'image')
+    search_fields = ('title',)
 
 @admin.register(HeroSection)
 class HeroSectionAdmin(admin.ModelAdmin):
@@ -71,11 +70,11 @@ class HeroSectionAdmin(admin.ModelAdmin):
 
 @admin.register(AboutContent)
 class AboutContentAdmin(admin.ModelAdmin):
-    list_display = ('heading', 'body')
+    list_display = ('heading', 'body', 'image')
 
 @admin.register(Program)
 class ProgramAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    list_display = ('name', 'description', 'icon')
 
 @admin.register(ImpactStat)
 class ImpactStatAdmin(admin.ModelAdmin):
@@ -83,7 +82,8 @@ class ImpactStatAdmin(admin.ModelAdmin):
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('name', 'quote')
+    list_display = ('name', 'quote', 'photo')
+
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
     list_display = ('name', 'position', 'photo')

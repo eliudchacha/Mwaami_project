@@ -27,6 +27,7 @@ ALLOWED_HOSTS = [
     'mwaami_project.onrender.com',
     'eliudwaryoba.me',
     'www.eliudwaryoba.me',
+    'https://mwaami-project-1.onrender.com'
 ]
 
 # Include Render external hostname if available
@@ -43,6 +44,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://mwaami_project.onrender.com',
     'https://eliudwaryoba.me',
     'https://www.eliudwaryoba.me',
+    'https://mwaami-project-1.onrender.com'
 ]
 
 if not DEBUG:
@@ -94,6 +96,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://mwaami_project.onrender.com',
     'https://eliudwaryoba.me',
     'https://www.eliudwaryoba.me',
+    'https://mwaami-project-1.onrender.com'
 ]
 
 # -----------------------------

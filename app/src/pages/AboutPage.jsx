@@ -4,7 +4,7 @@ const AboutPage = () => {
   const [about, setAbout] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/about/")
+    fetch("https://mwaami-project.onrender.com/api/api/about/")
       .then((res) => res.json())
       .then((data) => setAbout(data[0]))
       .catch((err) => console.error("Error fetching about:", err));

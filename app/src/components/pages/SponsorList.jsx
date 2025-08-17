@@ -5,7 +5,7 @@ const SponsorList = () => {
   const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/sponsors/')
+    fetch("https://mwaami-project.onrender.com/api/api/sponsors/")
       .then((res) => res.json())
       .then((data) => setSponsors(data))
       .catch((err) => console.error('Error fetching sponsors:', err));

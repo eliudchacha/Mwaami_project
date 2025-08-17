@@ -6,7 +6,7 @@ const Stats = () => {
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/impact/")
+    axios.get("https://mwaami-project.onrender.com/api/api/impactstats/")
       .then(res => setStats(res.data))
       .catch(err => console.error("Failed to load impact stats:", err));
   }, []);

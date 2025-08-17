@@ -6,7 +6,7 @@ const Hero = () => {
   const [heroData, setHeroData] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/hero/")
+    axios.get("https://mwaami-project.onrender.com/api/api/heropages/")
       .then(response => {
         setHeroData(response.data[0]); // assuming only 1 hero object
       })

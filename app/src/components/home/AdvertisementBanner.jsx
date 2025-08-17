@@ -4,7 +4,7 @@ const AdvertisementBanner = () => {
   const [ads, setAds] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/ads/')
+    fetch("https://mwaami-project.onrender.com/api/api/advertisements/")
       .then((res) => res.json())
       .then((data) => setAds(data))
       .catch((error) => console.error('Error fetching ads:', error));

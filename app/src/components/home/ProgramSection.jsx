@@ -6,7 +6,7 @@ const ProgramSection = () => {
   const [programs, setPrograms] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/programs/")
+    axios.get("https://mwaami-project.onrender.com/api/api/programs/")
       .then(res => setPrograms(res.data))
       .catch(err => console.error("Failed to load programs:", err));
   }, []);

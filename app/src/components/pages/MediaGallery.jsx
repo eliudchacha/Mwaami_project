@@ -5,7 +5,7 @@ const MediaGallery = () => {
   const [media, setMedia] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/media/')
+    fetch("https://mwaami-project.onrender.com/api/api/mediacontent/")
       .then((res) => res.json())
       .then((data) => setMedia(data))
       .catch((err) => console.error('Error fetching media:', err));

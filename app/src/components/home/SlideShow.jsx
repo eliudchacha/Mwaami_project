@@ -7,7 +7,7 @@ const SlideShow = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/slides/")
+    axios.get( "https://mwaami-project.onrender.com/api/api/slides")
       .then(res => setSlides(res.data))
       .catch(err => console.error("Error loading slides:", err));
   }, []);

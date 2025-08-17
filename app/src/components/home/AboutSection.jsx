@@ -6,7 +6,7 @@ const AboutSection = () => {
   const [about, setAbout] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/about/")
+    axios.get("https://mwaami-project.onrender.com/api/api/about/")
       .then(res => setAbout(res.data[0]))  // assuming one about record
       .catch(err => console.error("Failed to load about data:", err));
   }, []);

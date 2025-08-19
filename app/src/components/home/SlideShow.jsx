@@ -9,7 +9,16 @@ const SlideShow = () => {
   useEffect(() => {
     axios
       .get("https://mwaami-project.onrender.com/api/api/slides")
-      .then((res) => setSlides(res.data))
+      .then((res) => {
+        // Ensure image URLs are absolute
+        const slidesWithAbsoluteUrls = res.data.map(slide => ({
+          ...slide,
+          image: slide.image.startsWith('http') 
+            ? slide.image 
+            : `https://mwaami-project.onrender.com${slide.image}`
+        }));
+        setSlides(slidesWithAbsoluteUrls);
+      })
       .catch((err) => console.error("Error loading slides:", err));
   }, []);
 
@@ -17,10 +26,10 @@ const SlideShow = () => {
     if (slides.length > 0) {
       const timer = setInterval(() => {
         setCurrent((prev) => (prev + 1) % slides.length);
-      }, 3000); // 3 seconds per slide
+      }, 3000);
       return () => clearInterval(timer);
     }
-  }, [slides]);
+  }, [slides]); // Keep slides as dependency
 
   if (slides.length === 0) return null;
 
@@ -30,15 +39,20 @@ const SlideShow = () => {
   return (
     <div
       className="slideshow"
-      style={{ backgroundImage: `url(${slides[current].image})` }}
+      style={{ 
+        backgroundImage: `url(${slides[current]?.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
     >
       <div className="slideshow__overlay">
         <div className="slideshow__content">
-          <h1>{slides[current].title}</h1>
-          <p>{slides[current].description}</p>
+          <h1>{slides[current]?.title}</h1>
+          <p>{slides[current]?.description}</p>
           <button>Learn More</button>
         </div>
-        <div className="slideshow__nav">
+        {/* Hidden navigation that still works */}
+        <div className="slideshow__nav" style={{ opacity: 0 }}>
           <span className="prev" onClick={prevSlide}>&#10094;</span>
           <span className="next" onClick={nextSlide}>&#10095;</span>
         </div>

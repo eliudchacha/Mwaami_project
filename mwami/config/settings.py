@@ -16,7 +16,7 @@ SECRET_KEY = os.getenv(
 # -----------------------------
 # DEBUG
 # -----------------------------
-DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1')
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('False', '1')
 
 # -----------------------------
 # ALLOWED HOSTS
@@ -167,7 +167,7 @@ STATICFILES_DIRS = [
 ] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://mwaami-project-mediaonrender.com/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # -----------------------------

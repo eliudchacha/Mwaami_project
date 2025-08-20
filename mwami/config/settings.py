@@ -176,7 +176,7 @@ STATICFILES_DIRS = [
 ] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = 'https://mwaami-project-mediaonrender.com/'
+MEDIA_URL = 'https://mwaami-project-onrender.com/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # -----------------------------

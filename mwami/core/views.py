@@ -1,4 +1,3 @@
-# core/views.py
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -20,4 +19,9 @@ def api_root(request, format=None):
         'programs': reverse('program-list', request=request, format=format),
         'impactstats': reverse('impactstat-list', request=request, format=format),
         'aboutcontent': reverse('aboutcontent-list', request=request, format=format),
+        'staff': reverse('staff-list', request=request, format=format),
+        'testimonials': reverse('testimonial-list', request=request, format=format),
+        'donations': reverse('donations-list', request=request, format=format),
+        'message': reverse('contactmessage-list', request=request, format=format),
+        'progressreports': reverse('progressreport-list', request=request, format=format),  # <-- added
     })

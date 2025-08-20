@@ -176,8 +176,9 @@ STATICFILES_DIRS = [
 ] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = 'https://mwaami-project-onrender.com/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'  # URL prefix
+MEDIA_ROOT = os.path.join('/mnt/data', 'media')  # Path on Render persistent disk
+
 
 # -----------------------------
 # REST FRAMEWORK SETTINGS

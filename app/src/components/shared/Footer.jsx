@@ -1,7 +1,7 @@
 // src/components/shared/Footer.jsx
 import React, { useState } from "react";
 import "./Footer.css";
-import { csrfFetch } from "./utils/csrf";
+import { csrfFetch } from "../../utils/csrf";
 
 const Footer = () => {
   const [formData, setFormData] = useState({

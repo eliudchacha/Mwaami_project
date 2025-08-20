@@ -30,6 +30,15 @@ ALLOWED_HOSTS = [
     'https://mwaami-project-1.onrender.com'
 ]
 
+# CSRF settings
+CSRF_COOKIE_HTTPONLY = False   # allow frontend JS to read the CSRF cookie
+CSRF_TRUSTED_ORIGINS = [
+    "https://mwaami-project-1.onrender.com",   # React dev server
+    "http://127.0.0.1:5173",
+    "https://www.eliudwaryoba.me"   # production domain
+]
+
+
 # Include Render external hostname if available
 RENDER_HOSTNAME = os.getenv('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_HOSTNAME:

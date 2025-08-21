@@ -14,7 +14,7 @@ urlpatterns = [
     path('api/', include('core.urls')),
 
     # Optional: login/logout for browsable API
-    path('api-auth/', include('rest_framework.urls')),
+
 ]
 
 if settings.DEBUG:

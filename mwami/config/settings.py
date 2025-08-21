@@ -177,7 +177,9 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'  # URL prefix
-MEDIA_ROOT = os.path.join('/mnt/data', 'media')  # Path on Render persistent disk
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, "media"))
+
+  # Path on Render persistent disk
 
 
 # -----------------------------

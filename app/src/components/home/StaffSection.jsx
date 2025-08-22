@@ -5,7 +5,7 @@ const StaffSection = () => {
   const [staff, setStaff] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/staff/") // API endpoint from Django
+    fetch("http://209.38.93.164/api/staff/") // API endpoint from Django
       .then((res) => res.json())
       .then((data) => setStaff(data))
       .catch((err) => console.error("Error fetching staff:", err));

@@ -24,16 +24,16 @@ DEBUG = os.getenv('DEBUG', 'False').lower() in ('False', '1')
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'mwaami_project.onrender.com',
+    '209.38.93.164',
     'eliudwaryoba.me',
     'www.eliudwaryoba.me',
-    'https://mwaami-project-1.onrender.com'
+    
 ]
 
 # CSRF settings
 CSRF_COOKIE_HTTPONLY = False   # allow frontend JS to read the CSRF cookie
 CSRF_TRUSTED_ORIGINS = [
-    "https://mwaami-project-1.onrender.com",   # React dev server
+    "https://209.38.93.164",   # React dev server
     "http://127.0.0.1:5173",
     "https://www.eliudwaryoba.me"   # production domain
 ]
@@ -50,10 +50,10 @@ if RENDER_HOSTNAME:
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://mwaami_project.onrender.com',
+    'https://209.38.93.164',
     'https://eliudwaryoba.me',
     'https://www.eliudwaryoba.me',
-    'https://mwaami-project-1.onrender.com'
+    
 ]
 
 if not DEBUG:
@@ -102,10 +102,9 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'https://mwaami_project.onrender.com',
     'https://eliudwaryoba.me',
     'https://www.eliudwaryoba.me',
-    'https://mwaami-project-1.onrender.com'
+    'https://209.38.93.164'
 ]
 
 # -----------------------------

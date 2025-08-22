@@ -4,7 +4,7 @@ const SponsorsSection = () => {
   const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
-    fetch('https://mwaami-project.onrender.com/api/api/sponsors/')
+    fetch('https://209.38.93.164/api/api/sponsors/')
       .then((res) => res.json())
       .then((data) => setSponsors(data))
       .catch((error) => console.error('Error fetching sponsors:', error));

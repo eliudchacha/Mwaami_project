@@ -5,7 +5,7 @@ const ChildrenList = () => {
   const [children, setChildren] = useState([]);
 
   useEffect(() => {
-    fetch("https://mwaami-project.onrender.com/api/api/children/")
+    fetch("https://209.38.93.164/api/api/children/")
       .then((res) => res.json())
       .then((data) => setChildren(data))
       .catch((err) => console.error('Error fetching children:', err));

@@ -4,7 +4,7 @@ const ProgramPage = () => {
   const [programs, setPrograms] = useState([]);
 
   useEffect(() => {
-    fetch("https://mwaami-project.onrender.com/api/api/programs/")
+    fetch("https://209.38.93.164/api/api/programs/")
       .then((res) => res.json())
       .then((data) => setPrograms(data))
       .catch((err) => console.error("Error fetching programs:", err));

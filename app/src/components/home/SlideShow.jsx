@@ -9,13 +9,13 @@ const SlideShow = () => {
   // Fetch slides from API
   useEffect(() => {
     axios
-      .get("https://mwaami-project.onrender.com/api/api/slides")
+      .get("https://209.38.93.164/api/api/slides")
       .then((res) => {
         const slidesWithAbsoluteUrls = res.data.map((slide) => ({
           ...slide,
           image: slide.image.startsWith("http")
             ? slide.image
-            : `https://mwaami-project.onrender.com${slide.image}`,
+            : `https://209.38.93.164${slide.image}`,
         }));
         setSlides(slidesWithAbsoluteUrls);
       })

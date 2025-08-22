@@ -14,7 +14,7 @@ const DonationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/api/donations/', {
+    fetch('http://209.38.93.164/api/donations/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

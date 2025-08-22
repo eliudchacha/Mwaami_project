@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 const csrftoken = getCSRFToken();
 
-axios.post("https://209.38.93.164/api/endpoint/", data, {
+axios.post("https://eliudwaryoba.me/api/api/endpoint/", data, {
   headers: { "X-CSRFToken": csrftoken }
 })
 .then(res => console.log(res.data))

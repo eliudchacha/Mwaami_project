@@ -4,7 +4,7 @@ const AdvertisementBanner = () => {
   const [ads, setAds] = useState([]);
 
   useEffect(() => {
-    fetch("https://209.38.93.164/api/api/advertisements/")
+    fetch("https://eliudwaryoba.me/api/api/advertisements/")
       .then((res) => res.json())
       .then((data) => setAds(data))
       .catch((error) => console.error('Error fetching ads:', error));

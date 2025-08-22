@@ -5,7 +5,7 @@ const SponsorList = () => {
   const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
-    fetch("https://209.38.93.164/api/api/sponsors/")
+    fetch("https://eliudwaryoba.me/api/api/sponsors/")
       .then((res) => res.json())
       .then((data) => setSponsors(data))
       .catch((err) => console.error('Error fetching sponsors:', err));

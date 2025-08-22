@@ -14,7 +14,7 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://209.38.93.164/api/contactmessages/", {
+    fetch("http://eliudwaryoba.me/api/api/message/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

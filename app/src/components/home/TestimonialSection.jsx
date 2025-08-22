@@ -6,7 +6,7 @@ const TestimonialSection = () => {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    axios.get("http://209.38.93.164/api/testimonials/")
+    axios.get("http://eliudwaryoba.me/api/api/testimonials/")
       .then(res => setTestimonials(res.data))
       .catch(err => console.error("Error loading testimonials:", err));
   }, []);

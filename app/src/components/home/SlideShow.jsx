@@ -9,13 +9,13 @@ const SlideShow = () => {
   // Fetch slides from API
   useEffect(() => {
     axios
-      .get("https://209.38.93.164/api/api/slides")
+      .get("https://eliudwaryoba.me/api/api/slides")
       .then((res) => {
         const slidesWithAbsoluteUrls = res.data.map((slide) => ({
           ...slide,
           image: slide.image.startsWith("http")
             ? slide.image
-            : `https://209.38.93.164${slide.image}`,
+            : `https://eliudwaryoba.me${slide.image}`,
         }));
         setSlides(slidesWithAbsoluteUrls);
       })
